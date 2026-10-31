@@ -115,7 +115,7 @@ export function Gallery() {
         {gallery.map((p, i) => (
           <m.li
             key={p.src}
-            className={p.tall ? (i === lastTall ? 'is-tall is-tall--wide-only' : 'is-tall') : ''}
+            className={p.tall ? (i === lastTall ? 'is-tall is-tall--wide-only' : 'is-tall') : p.wide ? 'is-wide' : ''}
             initial={{ opacity: 0, y: motionTokens.distance.lg, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={inView}
@@ -127,8 +127,8 @@ export function Gallery() {
                 alt={t(p.alt)}
                 loading="lazy"
                 decoding="async"
-                width={p.tall ? 480 : 720}
-                height={p.tall ? 720 : 480}
+                width={p.tall ? 480 : p.wide ? 1280 : 720}
+                height={p.tall ? 720 : p.wide ? 600 : 480}
               />
               <span className="gallery__caption" aria-hidden>
                 {t(p.alt)}

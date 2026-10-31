@@ -1244,6 +1244,10 @@ main:focus {
   grid-row: span 2;
 }
 
+.gallery li.is-wide {
+  grid-column: span 2;
+}
+
 .gallery button {
   position: relative;
   display: block;
